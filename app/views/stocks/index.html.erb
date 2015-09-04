@@ -6,15 +6,15 @@
           <h5 class="form-signin-heading">Enter a symbol:</h5>
             <%= form_tag stocks_path, :method => 'get' do %>
             <%= text_field_tag :stock, params[:stock] %>
-            <%= submit_tag "Search", :name => nil, class: "btn btn-lg btn-primary btn-block" %>
+            <%= submit_tag "Search", :name => nil, class: "btn btn-sm btn-primary btn-block", id: "butt" %>
             <% end %>
       </div>
       <br>
 
-    <%= @result[0].upcase %> - <%= @result[2] %><br>
-    -5%:  $ <%= (@result[1]*(0.95)).round(2) %><br>
-    ASK:  $ <%=  @result[1].round(2)%><br>
-    +10%: $<%= (@result[1]*(1.10)).to_f.round(2) %>
+    <strong><%= @result[0].upcase %> - <%= @result[2].delete(',').upcase %></strong> <br>
+    <strong>-5%:</strong>  $<%= (@result[1]*(0.95)).round(2) %><br>
+    <strong>ASK:</strong>  $<%=  @result[1].round(2)%><br>
+    <strong>+10%:</strong> $<%= (@result[1]*(1.10)).to_f.round(2) %>
     </div>
   </div>
 </div>
