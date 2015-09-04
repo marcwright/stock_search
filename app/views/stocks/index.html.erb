@@ -34,11 +34,12 @@
             <% end %>
       </div>
       <br>
-
+<div class="animated bounce">
     <h4><%= @result[2].delete(',').upcase %></h4>
     <h4><strong>-5%:</strong>  $<%= (@result[1]*(0.95)).round(2) %></h4>
     <h4><strong><h4>ASK:</strong>  $<%=  @result[1].round(2)%></h4>
     <h4><strong>+10%:</strong> $<%= (@result[1]*(1.10)).to_f.round(2) %>
+    </div>
     </div>
   </div>
 </div>
