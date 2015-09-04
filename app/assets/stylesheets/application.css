@@ -14,8 +14,14 @@
  *= require_self
  */
 
+/*@media handheld and (max-width: 600px) {
+    #butt {
+        width: 280px;
+    }
+}*/
+
 #butt {
-  width: 270px;
+  width: 280px;
   margin-top: 5px
 }
 
