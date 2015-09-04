@@ -6,12 +6,36 @@
           <h5 class="form-signin-heading">Enter a symbol:</h5>
             <%= form_tag stocks_path, :method => 'get' do %>
             <%= text_field_tag :stock, params[:stock] %>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Stop Loss <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">-5%</a></li>
+                <li><a href="#">-10%</a></li>
+                <li><a href="#">-15%</a></li>
+              </ul>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Gain<span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">10%</a></li>
+                <li><a href="#">15%</a></li>
+                <li><a href="#">20%</a></li>
+                <li><a href="#">25%</a></li>
+              </ul>
+            </div>
+
             <%= submit_tag "Search", :name => nil, class: "btn btn-sm btn-primary btn-block", id: "butt" %>
             <% end %>
       </div>
       <br>
 
-    <h4><%= @result[0].upcase %> - <%= @result[2].delete(',').upcase %></h4><br>
+    <h4><%= @result[2].delete(',').upcase %></h4>
     <h4><strong>-5%:</strong>  $<%= (@result[1]*(0.95)).round(2) %></h4>
     <h4><strong><h4>ASK:</strong>  $<%=  @result[1].round(2)%></h4>
     <h4><strong>+10%:</strong> $<%= (@result[1]*(1.10)).to_f.round(2) %>
