@@ -7,7 +7,7 @@ class Stock < ActiveRecord::Base
 
     stock = data["query"]["results"]["quote"]
 
-    results = [stock["symbol"], stock["Ask"].to_f, stock["Name"]]
+    results = [stock["symbol"], stock["Ask"].to_f, stock["Name"].chomp]
     
   end
 end

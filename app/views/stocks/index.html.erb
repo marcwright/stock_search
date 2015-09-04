@@ -1,17 +1,20 @@
-<h1>Get Stocks!</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-offset-3">
+      <div class="form-group">
+        <h2 class="form-signin-heading">Get Stocks!</h2>
+          <h5 class="form-signin-heading">Enter a symbol:</h5>
+            <%= form_tag stocks_path, :method => 'get' do %>
+            <%= text_field_tag :stock, params[:stock] %>
+            <%= submit_tag "Search", :name => nil %>
+            <% end %>
+      </div>
+      <br>
 
-<h4>Enter a symbol:</h4>
-<%= form_tag stocks_path, :method => 'get' do %>
-  <%= text_field_tag :stock, params[:stock] %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-
-<br>
-
-<%= @result[0].upcase %> - <%= @result[2] %><br>
--5%:  $ <%= (@result[1]*(0.95)).round(2) %><br>
-ASK:  $ <%=  @result[1].round(2)%><br>
-+10%: $<%= (@result[1]*(1.10)).to_f.round(2) %>
-
-
-<br>
+    <%= @result[0].upcase %> - <%= @result[2] %><br>
+    -5%:  $ <%= (@result[1]*(0.95)).round(2) %><br>
+    ASK:  $ <%=  @result[1].round(2)%><br>
+    +10%: $<%= (@result[1]*(1.10)).to_f.round(2) %>
+    </div>
+  </div>
+</div>
