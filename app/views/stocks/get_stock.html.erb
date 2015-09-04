@@ -1,0 +1,12 @@
+<h1>Get Stocks!</h1>
+
+<h4>Enter the stock symbol you would like to evaluate:</h4>
+<%= form_tag stocks_path, :method => 'get' do %>
+    <%= text_field_tag :stock, params[:stock] %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<%= @result %>
+
+
+<br>
