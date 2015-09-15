@@ -8,6 +8,10 @@ class Stock < ActiveRecord::Base
     stock = data["query"]["results"]["quote"]
 
     results = [stock["symbol"], stock["Ask"].to_f, stock["Name"].chomp]
+
+    Stock.create(symbol: stock["symbol"].upcase, name: stock["Name"].chomp, ask: stock["Ask"])
+    
+    return results
     
   end
 end
